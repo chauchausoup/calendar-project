@@ -1305,10 +1305,8 @@ __metadata:
     postcss: ^8.4.31
     react: ^18.2.0
     react-chartjs-2: ^5.2.0
-    react-day-picker: ^8.9.1
     react-dom: ^18.2.0
     react-modal: ^3.16.1
-    react-multi-date-picker: ^4.4.1
     tailwind-merge: ^2.0.0
     tailwindcss: ^3.3.5
     tailwindcss-animate: ^1.0.7
@@ -2915,23 +2913,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-date-object@npm:^2.1.8":
-  version: 2.1.8
-  resolution: "react-date-object@npm:2.1.8"
-  checksum: 8c4ecc7f849efccc483fd78411d88971b48b2e695f1fe331ff83a0e1d87299f3c9d073bd7efba0dd542f5500923ed05dc65af0ea03e1bb344918e3e9e998d703
-  languageName: node
-  linkType: hard
-
-"react-day-picker@npm:^8.9.1":
-  version: 8.9.1
-  resolution: "react-day-picker@npm:8.9.1"
-  peerDependencies:
-    date-fns: ^2.28.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 1a609bd3621f66fd93c58635990246c6129e57ea33d05345256bdd561f56035a04b201213a279aa37129dbbe149ae5f0f15259a9d06309910d1c9a6bb6c0eccc
-  languageName: node
-  linkType: hard
-
 "react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
@@ -2941,16 +2922,6 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
   checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
-  languageName: node
-  linkType: hard
-
-"react-element-popper@npm:^2.1.6":
-  version: 2.1.6
-  resolution: "react-element-popper@npm:2.1.6"
-  peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-  checksum: 0140c2f78ea5b4ef92d2711ca66d96513403ffab62063cd3bdfee662d5424ceaf50f08a74da3a5e370b3160b1e345d144afa834f90bea5e06fa23c1682660ac4
   languageName: node
   linkType: hard
 
@@ -2980,19 +2951,6 @@ __metadata:
     react: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
     react-dom: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
   checksum: 978936e9320fad839c039b9ee4de55d40888156cb40e093615d6fbc2ff07139d5db06f14782cb7767f780bd5fb57956778669426c535ebc0068a7a03882c7e75
-  languageName: node
-  linkType: hard
-
-"react-multi-date-picker@npm:^4.4.1":
-  version: 4.4.1
-  resolution: "react-multi-date-picker@npm:4.4.1"
-  dependencies:
-    react-date-object: ^2.1.8
-    react-element-popper: ^2.1.6
-  peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-  checksum: fb225006e24f90ac1283f0e51339b941c17fcdf92418b55c7c51619a17e6f8786bed663187ef24b5f657c20d3bf178bb1ba56e593c314a9add30c43a491a0c6a
   languageName: node
   linkType: hard
 
