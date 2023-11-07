@@ -5,8 +5,8 @@ import { convertToGMT545, itemIsInLocalStorage, getItemsIfAlreadyPresent } from 
 
 export default function CalendarPage() {
 
-  const [dates, setDates] = React.useState<Date[]>([]); // Initialize as an empty array
-  const [selectedDates, setSelectedDates] = React.useState<Date[]>([]); // Initialize as an empty array
+  const [dates, setDates] = React.useState<Date[]>([]);
+  const [selectedDates, setSelectedDates] = React.useState<Date[]>([]);
 	const [displayDay,setDisplayDay] = React.useState<Date>();
 	const bookedStyle = { border: '2px solid red' };
 	const [localName,setLocalName] = React.useState("")
@@ -17,20 +17,14 @@ export default function CalendarPage() {
   React.useEffect(() => {
     async function fetchData() {
       try {
-				console.log(itemIsInLocalStorage(),"tftf")
-
 				if(!itemIsInLocalStorage()){
-					// Make a GET request to the API using async/await
 					const response = await fetch("https://date.nager.at/api/v3/PublicHolidays/2023/US");
 					const data = await response.json();
 					localStorage.setItem("holidays", JSON.stringify(data));
-					// Extract the relevant dates from the API response
 					const selectedDates = data.map((holiday: { date: string | number | Date; }) => new Date(holiday.date));
 
-					// Update the state with the selected dates
 					setDates(selectedDates);
 				}else{
-					console.log(getItemsIfAlreadyPresent(),"GET GET")
 					setDates(getItemsIfAlreadyPresent())
 				}}
 				catch (error) {
@@ -38,11 +32,10 @@ export default function CalendarPage() {
 				}
     }
     fetchData();
-  }, []); // Run this effect once when the component mounts
+  }, []);
 
   const handleDateSelect = (selectedDates: Date[] | undefined) => {
     if (selectedDates) {
-      console.log(selectedDates);
       setSelectedDates(selectedDates);
     }
   };
@@ -56,7 +49,6 @@ export default function CalendarPage() {
 			const storedHolidays = JSON.parse(localStorage.getItem("holidays") || "[]");
 			const matchingHoliday = storedHolidays.find(
 				(holiday: { date: string }) => {
-					console.log(convertToGMT545(day),"D")
 					return holiday.date === convertToGMT545(day)
 				}
 			);
@@ -79,21 +71,18 @@ export default function CalendarPage() {
 	
 	const handleFormSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // Create a new holiday object with the selected date and the entered localName
     const newHoliday = {
       date: convertToGMT545(selectedDate),
       localName: localName,
-      name: localName, // You mentioned name should be the same as localName
-      countryCode: 'US', // Default value
-      fixed: false, // Default value
-      global: true, // Default value
-      counties: null, // Default value
-      launchYear: null, // Default value
-      types: ['Public'], // Default value
+      name: localName, 
+      countryCode: 'US', 
+      fixed: false, 
+      global: true,
+      counties: null, 
+      launchYear: null, 
+      types: ['Public'], 
     };
 
-    // You can now use newHoliday as needed (e.g., save to an array or perform other actions)
-    // For now, we'll just reset the form
     setLocalName('');
     setShowForm(false);
 		const d = JSON.parse(localStorage.getItem("holidays") || "[]")
