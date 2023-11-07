@@ -1,4 +1,4 @@
-import Calendar from'./features/Calendar'
+import Calendar from'./features/Calendar/Calendar'
 import Charts from './features/Charts'
 
 export default function Home() {

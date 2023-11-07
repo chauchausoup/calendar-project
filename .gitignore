@@ -1,3 +1,7 @@
+.yarn
+.yarn/*
+.yarn/cache
+
 # Logs
 logs
 *.log
@@ -23,4 +27,3 @@ dist-ssr
 *.sln
 *.sw?
 
-.yarn
