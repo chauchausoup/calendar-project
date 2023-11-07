@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button"
+import CalendarPage from'./pages/CalendarPage'
 
 export default function Home() {
   return (
     <div>
-      <Button>Click me</Button>
+			<CalendarPage/>
     </div>
   )
 }
