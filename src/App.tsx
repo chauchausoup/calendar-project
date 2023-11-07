@@ -1,9 +1,11 @@
-import CalendarPage from'./pages/CalendarPage'
+import Calendar from'./features/Calendar'
+import Charts from './features/Charts'
 
 export default function Home() {
   return (
     <div>
-			<CalendarPage/>
+			<Calendar/>
+			<Charts/>
     </div>
   )
 }
