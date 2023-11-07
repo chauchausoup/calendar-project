@@ -61,11 +61,12 @@ export default function CalendarPage() {
 				}
 			);
 
+			setDisplayDay(day);
+
 			if (matchingHoliday) {
 				setLocalName(matchingHoliday.localName);
 			} else {
 				openModal()
-				setDisplayDay(day);
 			}
 			setShowForm(true);
 			setSelectedDate(day);
@@ -102,48 +103,53 @@ export default function CalendarPage() {
   };
 
   return (
-    <>
-			<>{displayDay ? displayDay.toDateString() : "Click on date to get info"}</>
-			<br/>
-			<>{localName}</>
-			{showForm && (
-			<Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        contentLabel="Enter holiday name"
-				style={{
-					content: {
-						maxWidth: '400px',
-						maxHeight: '200px',
-						margin: 'auto',
-						padding: '20px',
-						borderRadius: '10px', 
-						border: 'none',
-						boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
-					},
-					overlay: {
-						backgroundColor: 'rgba(0, 0, 0, 0.7)',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
-					},
-				}}
-      >
-				<h4 className="p-2 px-auto">Enter holiday name to save for the day:</h4>
-				<form onSubmit={handleFormSubmit} className="flex flex-col items-center space-y-4">
-					<input
-						type="text"
-						placeholder="Enter holiday name"
-						value={localName}
-						onChange={(e) => setLocalName(e.target.value)}
-						className="p-2 border border-gray-300 rounded"
-					/>
-					<input type="hidden" name="selectedDate" value={selectedDate} />
-					<button type="submit" className="p-2 bg-blue-500 text-white rounded hover:bg-blue-700 cursor-pointer">
-						Save
-					</button>
-				</form>
-			</Modal>
+		<>
+      <div className="text-lg font-semibold">
+        {displayDay ? displayDay.toDateString() : "Click on date to get info"}
+      </div>
+      <div>{`Holiday Name :  ${localName}`}</div>
+      {showForm && (
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          contentLabel="Enter holiday name"
+          style={{
+            content: {
+              maxWidth: '400px',
+              maxHeight: '200px',
+              margin: 'auto',
+              padding: '20px',
+              borderRadius: '10px',
+              border: 'none',
+              boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
+            },
+            overlay: {
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            },
+          }}
+        >
+          <h4 className="p-2 text-center">Enter holiday name to save for the day:</h4>
+          <form onSubmit={handleFormSubmit} className="flex flex-col items-center space-y-4">
+            <input
+              type="text"
+              placeholder="Enter holiday name"
+              value={localName}
+              onChange={(e) => setLocalName(e.target.value)}
+              className="p-2 border border-gray-300 rounded"
+            />
+            <input type="hidden" name="selectedDate" value={selectedDate} />
+            <button
+              type="submit"
+              className="p-2 bg-blue-500 text-white rounded hover:bg-blue-700 cursor-pointer"
+            >
+              Save
+            </button>
+          </form>
+					<h6 className="text-xs">*Press esc to cancel</h6>
+        </Modal>
       )}
 			<Calendar
 				mode="multiple"
